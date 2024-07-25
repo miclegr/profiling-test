@@ -46,4 +46,4 @@ jobs:
           pip install wheel
           pip install -r dev-requirements.txt
       - name: Run profiling
-        run: "asv continuous ${{ github.base_ref }} ${{ github.sha }}"
+        run: "asv continuous refs/remotes/origin/master ${{ github.ref }}"
