@@ -24,7 +24,7 @@
     "build_command": [
           "python -m pip install build",
           "python -m build",
-          "/usr/bin/cp {build_dir}/dist/*.whl {build_cache_dir}"
+          "/usr/bin/cp {build_dir}/dist/. {build_cache_dir}"
      ],
     // // To build the package using setuptools and a setup.py file, uncomment the following lines
     // "build_command": [
