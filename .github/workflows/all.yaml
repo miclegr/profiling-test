@@ -48,4 +48,4 @@ jobs:
       - name: Run profiling
         run: |
              asv machine --yes
-             asv continuous refs/remotes/origin/master ${{ github.sha }}
+             asv continuous --no-only-changed refs/remotes/origin/master ${{ github.sha }}
