@@ -48,4 +48,4 @@ jobs:
       - name: Run profiling
         run: |
              asv machine --yes
-             asv continuous --no-only-changed refs/remotes/origin/master ${{ github.sha }} | tee | sed -n "/^All benchmarks:$/,$p" > $GITHUB_STEP_SUMMARY
+             asv continuous --no-only-changed refs/remotes/origin/master ${{ github.sha }} | tee | sed  '1,/All benchmarks:/d' > $GITHUB_STEP_SUMMARY
