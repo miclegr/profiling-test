@@ -27,9 +27,6 @@ jobs:
         os: ['ubuntu-latest']
     runs-on: ${{ matrix.os }}
     continue-on-error: true
-    defaults:
-      run:
-        working-directory: python
     name: Test with Python ${{ matrix.python-version }} on ${{ matrix.os }}
     steps:
       - name: Set up Python ${{ matrix.python-version }}
