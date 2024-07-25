@@ -27,9 +27,6 @@ jobs:
         os: ['ubuntu-latest']
     runs-on: ${{ matrix.os }}
     continue-on-error: true
-    defaults:
-      run:
-        working-directory: python
     name: Test with Python ${{ matrix.python-version }} on ${{ matrix.os }}
     steps:
       - name: Set up Python ${{ matrix.python-version }}
@@ -49,4 +46,6 @@ jobs:
           pip install wheel
           pip install -r dev-requirements.txt
       - name: Run profiling
-        run: asv continuous $GITHUB_REF master
+        run: |
+             asv machine --yes
+             asv continuous --no-only-changed refs/remotes/origin/master ${{ github.sha }} | tee | sed  '1,/All benchmarks:/d' > $GITHUB_STEP_SUMMARY
